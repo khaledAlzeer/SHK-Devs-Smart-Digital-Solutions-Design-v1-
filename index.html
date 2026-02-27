@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHK Devs — Building Smart Digital Solutions</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<!-- Google Fonts — Syne (display) + DM Sans (body) + DM Mono (labels/code) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Main stylesheet -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Scroll progress bar (top of page) -->
+<div id="progress-bar"></div>
+
+<!-- ===========================
+     MODAL — custom alert dialog (replaces browser alert())
+=========================== -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-icon" id="modal-icon">✅</div>
+    <div class="modal-title" id="modal-title">Action</div>
+    <p class="modal-msg" id="modal-msg"></p>
+    <button class="modal-close" onclick="closeModal()">Got it</button>
+  </div>
+</div>
+
+<!-- ===========================
+     NAVIGATION
+=========================== -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <img src="images/SHK-Logo.jpg" alt="SHK Devs Logo">
+    SHK<span>Devs</span>
+  </a>
+  <div class="nav-links">
+    <a href="#home"         class="active" data-section="home">Home</a>
+    <a href="#about"        data-section="about">About</a>
+    <a href="#team"         data-section="team">Team</a>
+    <a href="#services"     data-section="services">Services</a>
+    <a href="#portfolio"    data-section="portfolio">Portfolio</a>
+    <a href="#blog"         data-section="blog">Blog</a>
+    <a href="#testimonials" data-section="testimonials">Testimonials</a>
+    <a href="#faq"          data-section="faq">FAQ</a>
+    <a href="#contact"      data-section="contact" class="nav-cta">Contact Us</a>
+  </div>
+  <!-- Current section label — visible after scrolling -->
+  <span class="nav-section-label" id="section-label">— Home</span>
+  <!-- Hamburger (mobile only) -->
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile menu dropdown -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#home"         onclick="closeMenu()">Home</a>
+  <a href="#about"        onclick="closeMenu()">About</a>
+  <a href="#team"         onclick="closeMenu()">Team</a>
+  <a href="#services"     onclick="closeMenu()">Services</a>
+  <a href="#portfolio"    onclick="closeMenu()">Portfolio</a>
+  <a href="#blog"         onclick="closeMenu()">Blog</a>
+  <a href="#testimonials" onclick="closeMenu()">Testimonials</a>
+  <a href="#faq"          onclick="closeMenu()">FAQ</a>
+  <a href="#contact"      onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- ===========================
+     HERO SECTION
+=========================== -->
+<section id="home">
+  <!-- Decorative background: grid + blurred orbs -->
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+  </div>
+
+  <div class="hero-content">
+    <!-- Logo image -->
+    <img src="images/SHK-Logo.jpg" alt="SHK Devs" class="hero-logo fade-in">
+
+    <!-- Eyebrow line -->
+    <div class="hero-eyebrow fade-in fade-in-delay-1">Creative Development Team</div>
+
+    <!-- Main headline -->
+    <h1 class="hero-title fade-in fade-in-delay-2">
+      Building Smart<br>
+      <span class="line2">Digital Solutions</span>
+    </h1>
+
+    <!-- Description -->
+    <p class="hero-desc fade-in fade-in-delay-3">
+      SHK Devs is a creative development team specializing in Web Development, Backend Systems, Data Analysis, and AI-powered solutions.
+    </p>
+
+    <!-- CTA buttons -->
+    <div class="hero-btns fade-in fade-in-delay-4">
+      <button class="btn btn-primary btn-arrow" onclick="servicesAlert()">Explore Services</button>
+      <a href="#portfolio" class="btn btn-secondary">Our Work</a>
+      <a href="#contact"   class="btn btn-ghost">Get in Touch</a>
+    </div>
+
+    <!-- Quote line -->
+    <p class="hero-quote fade-in">"Innovating the digital world, one solution at a time."</p>
+
+    <!-- Stats row -->
+    <div class="hero-stats fade-in">
+      <div class="hero-stat">
+        <div class="hero-stat-num">100<span>+</span></div>
+        <div class="hero-stat-label">Projects Completed</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">50<span>+</span></div>
+        <div class="hero-stat-label">Happy Clients</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">10</div>
+        <div class="hero-stat-label">Years Combined Exp.</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">40<span>+</span></div>
+        <div class="hero-stat-label">AI Implementations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     ABOUT SECTION
+=========================== -->
+<section id="about">
+  <div class="section-glow"></div>
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Left: intro text + mission/vision + CTA -->
+      <div class="about-text">
+        <div class="section-tag fade-in">About Us</div>
+        <h2 class="section-title fade-in">About <em>SHK Devs</em></h2>
+        <p class="fade-in">SHK Devs is a dynamic and creative development team committed to delivering innovative digital solutions. Our team brings together expertise in full-stack development, AI, data security, and software engineering to create impactful products.</p>
+        <p class="fade-in">We believe in building solutions that don't just work — they grow with your business and adapt to an ever-changing digital world.</p>
+        <div class="about-pillars fade-in">
+          <div class="about-pillar">
+            <div class="pillar-icon">🎯</div>
+            <div class="pillar-title">Our Mission</div>
+            <div class="pillar-desc">Create digital solutions that empower businesses to grow and thrive in the modern world.</div>
+          </div>
+          <div class="about-pillar">
+            <div class="pillar-icon">🔭</div>
+            <div class="pillar-title">Our Vision</div>
+            <div class="pillar-desc">Become a leading digital solutions provider recognized for quality, innovation, and impact.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: achievements stats grid -->
+      <div>
+        <h3 style="font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--white);margin-bottom:20px;" class="fade-in">Key Achievements</h3>
+        <div class="achievements-grid">
+          <div class="achievement-card fade-in"><div class="achievement-num">100+</div><div class="achievement-label">Projects Completed</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">50+</div><div class="achievement-label">Happy Clients</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">10</div><div class="achievement-label">Years Combined Experience</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">30+</div><div class="achievement-label">Innovative Solutions</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">40+</div><div class="achievement-label">AI Implementations</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">20+</div><div class="achievement-label">Web Apps Delivered</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">15+</div><div class="achievement-label">Backend Systems</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">25+</div><div class="achievement-label">Data Analytics Projects</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">5+</div><div class="achievement-label">Awards Won</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">35+</div><div class="achievement-label">Clients Worldwide</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">30+</div><div class="achievement-label">UX/UI Designs</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">50+</div><div class="achievement-label">AI Models Developed</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">60+</div><div class="achievement-label">APIs Integrated</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">40+</div><div class="achievement-label">Cloud Solutions</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">20+</div><div class="achievement-label">Blockchain Projects</div></div>
+          <div class="achievement-card fade-in"><div class="achievement-num">50+</div><div class="achievement-label">Mobile Apps</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA banner below about content -->
+    <div class="about-cta-banner fade-in">
+      <div class="about-cta-text">
+        <h3>Ready to Build Something Amazing?</h3>
+        <p>Let's bring your vision to life with cutting-edge technology.</p>
+      </div>
+      <button class="btn btn-primary btn-arrow" onclick="discoverAlert()">Discover Our Services</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     TEAM SECTION
+=========================== -->
+<section id="team">
+  <div class="section-glow"></div>
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-tag fade-in">Meet the Team</div>
+      <h2 class="section-title fade-in">The <em>People</em> Behind SHK Devs</h2>
+      <p class="section-subtitle fade-in" style="margin:0 auto 48px;">Passionate developers dedicated to building exceptional digital experiences.</p>
+    </div>
+
+    <div class="team-grid">
+
+      <!-- Team member: Khaled Alzeer -->
+      <div class="team-card fade-in">
+        <div class="team-avatar-wrap">
+          <img src="images/Khaled.jpg" alt="Khaled Alzeer">
+        </div>
+        <div class="team-name">Khaled Alzeer</div>
+        <div class="team-role">Full Stack Developer &amp; AI Data Security</div>
+        <p class="team-desc">An experienced full-stack developer with deep expertise in AI data security. Khaled builds robust, scalable solutions with a focus on intelligent systems and performance-driven architecture.</p>
+        <div class="team-tags">
+          <span class="tag">Full Stack</span>
+          <span class="tag">AI</span>
+          <span class="tag">Data Security</span>
+          <span class="tag">Backend</span>
+        </div>
+        <div class="team-socials">
+          <a href="https://www.linkedin.com/in/khaled-alzeer-60787b322" target="_blank" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/khaledAlzeer" target="_blank" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="mailto:kalzyr61@email.com" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Email
+          </a>
+        </div>
+      </div>
+
+      <!-- Team member: Heba Alshawish -->
+      <div class="team-card fade-in fade-in-delay-1">
+        <div class="team-avatar-wrap">
+          <img src="images/Heba.jpeg" alt="Heba Alshawish">
+        </div>
+        <div class="team-name">Heba Alshawish</div>
+        <div class="team-role">AI Data Specialist &amp; Software Security</div>
+        <p class="team-desc">A skilled AI data specialist and software security expert. Heba brings a unique blend of analytical rigor and security-first thinking to every project, ensuring data integrity and system reliability.</p>
+        <div class="team-tags">
+          <span class="tag">AI Data</span>
+          <span class="tag">Security</span>
+          <span class="tag">Software</span>
+          <span class="tag">Analysis</span>
+        </div>
+        <div class="team-socials">
+          <a href="https://www.linkedin.com/in/heba-alshawish-00962933a/" target="_blank" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/iih3b" target="_blank" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="mailto:hebaelyas122@gmail.com" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Email
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:48px;" class="fade-in">
+      <button class="btn btn-outline" onclick="teamAlert()">Connect with our team</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     SERVICES SECTION
+=========================== -->
+<section id="services">
+  <div class="section-glow"></div>
+  <div class="container">
+    <div class="section-tag fade-in">What We Do</div>
+    <h2 class="section-title fade-in">Our <em>Services</em></h2>
+    <p class="section-subtitle fade-in">Comprehensive digital solutions tailored to your business needs — from idea to deployment.</p>
+
+    <!-- 8 service cards -->
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <span class="service-icon">🌐</span>
+        <div class="service-name">Web Development</div>
+        <p class="service-desc">Responsive, modern, and scalable websites built with the latest technologies to deliver exceptional user experiences.</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-1">
+        <span class="service-icon">📱</span>
+        <div class="service-name">Mobile Apps</div>
+        <p class="service-desc">Cross-platform mobile applications with smooth UX/UI that work seamlessly across all devices.</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-2">
+        <span class="service-icon">🤖</span>
+        <div class="service-name">AI Solutions</div>
+        <p class="service-desc">Custom machine learning models and AI systems that enable data-driven decisions and intelligent automation.</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-3">
+        <span class="service-icon">📊</span>
+        <div class="service-name">Data Analysis</div>
+        <p class="service-desc">Extract actionable insights from your data and optimize business strategies through advanced analytics.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-icon">☁️</span>
+        <div class="service-name">Cloud Solutions</div>
+        <p class="service-desc">Reliable cloud integration and management services to scale your infrastructure efficiently.</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-1">
+        <span class="service-icon">🔒</span>
+        <div class="service-name">Cybersecurity</div>
+        <p class="service-desc">Comprehensive security solutions to protect your digital assets and ensure data integrity.</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-2">
+        <span class="service-icon">🎨</span>
+        <div class="service-name">UI/UX Design</div>
+        <p class="service-desc">Intuitive interfaces and engaging experiences that keep users coming back for more.</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-3">
+        <span class="service-icon">⚙️</span>
+        <div class="service-name">Backend Systems</div>
+        <p class="service-desc">Efficient and scalable architectures that power your applications reliably at any scale.</p>
+      </div>
+    </div>
+
+    <!-- How We Work — 4-step process -->
+    <div style="margin-top:72px;">
+      <h3 class="how-title fade-in">How We Work</h3>
+      <div class="how-steps">
+        <div class="how-step fade-in">
+          <div class="how-step-num">01</div>
+          <div class="how-step-label">Consultation</div>
+          <div class="how-step-desc">We listen, understand your goals, and define the project scope together.</div>
+        </div>
+        <div class="how-step fade-in fade-in-delay-1">
+          <div class="how-step-num">02</div>
+          <div class="how-step-label">Planning</div>
+          <div class="how-step-desc">Detailed roadmap, technical specs, timeline, and architecture planning.</div>
+        </div>
+        <div class="how-step fade-in fade-in-delay-2">
+          <div class="how-step-num">03</div>
+          <div class="how-step-label">Development</div>
+          <div class="how-step-desc">Agile development with regular updates and transparent communication.</div>
+        </div>
+        <div class="how-step fade-in fade-in-delay-3">
+          <div class="how-step-num">04</div>
+          <div class="how-step-label">Delivery &amp; Support</div>
+          <div class="how-step-desc">On-time delivery with ongoing maintenance and post-launch support.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:56px;" class="fade-in">
+      <button class="btn btn-primary btn-arrow" onclick="solutionsAlert()">Explore All Solutions</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     PORTFOLIO SECTION
+=========================== -->
+<section id="portfolio">
+  <div class="section-glow"></div>
+  <div class="container">
+    <div class="section-tag fade-in">Our Work</div>
+    <h2 class="section-title fade-in">Featured <em>Projects</em></h2>
+    <p class="section-subtitle fade-in">A showcase of our most impactful work — from web apps to AI systems.</p>
+
+    <!-- 18 project cards -->
+    <div class="portfolio-grid">
+
+      <!-- Project: Khaled Blog -->
+      <div class="portfolio-card fade-in">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-khaled-blog.png" alt="Khaled Blog">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/BlogWithUsers" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Khaled Blog</div>
+          <p class="portfolio-desc">Flask-powered blog platform with user authentication and commenting system.</p>
+        </div>
+      </div>
+
+      <!-- Project: Family Travel Tracker -->
+      <div class="portfolio-card fade-in fade-in-delay-1">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-family-travel-tracker.png" alt="Family Travel Tracker">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/TravelTracker" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Family Travel Tracker</div>
+          <p class="portfolio-desc">Express.js and PostgreSQL interactive map to track family travel experiences.</p>
+        </div>
+      </div>
+
+      <!-- Project: Employee Management -->
+      <div class="portfolio-card fade-in fade-in-delay-2">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-employee-management-system.png" alt="Employee Management">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/EmployeeManagementSystem" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Employee Management</div>
+          <p class="portfolio-desc">Desktop application for comprehensive employee management and tracking.</p>
+        </div>
+      </div>
+
+      <!-- Project: Typing Master -->
+      <div class="portfolio-card fade-in">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-typing-master.png" alt="Typing Master">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/TypingMaster" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Typing Master</div>
+          <p class="portfolio-desc">Python Tkinter application for tracking and improving typing speed (WPM).</p>
+        </div>
+      </div>
+
+      <!-- Project: Breakout Arcade -->
+      <div class="portfolio-card fade-in fade-in-delay-1">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-breakout-arcade-game.png" alt="Breakout Arcade">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/BreakoutArcadegame" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Breakout Arcade</div>
+          <p class="portfolio-desc">Classic brick-breaking arcade game built with Python Turtle graphics.</p>
+        </div>
+      </div>
+
+      <!-- Project: Simon Game -->
+      <div class="portfolio-card fade-in fade-in-delay-2">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-simon-game.png" alt="Simon Game">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/Simon-Game" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Simon Game</div>
+          <p class="portfolio-desc">Interactive memory game with color sequences and sound feedback.</p>
+        </div>
+      </div>
+
+      <!-- Project: Galactic Blaster -->
+      <div class="portfolio-card fade-in">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-galactic-blaster.png" alt="Galactic Blaster">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/Galactic-Blaster" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Galactic Blaster</div>
+          <p class="portfolio-desc">HTML5 Canvas space shooter game with smooth controls and animations.</p>
+        </div>
+      </div>
+
+      <!-- Project: Interactive Drum Kit -->
+      <div class="portfolio-card fade-in fade-in-delay-1">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-interactive-drum-kit.png" alt="Interactive Drum Kit">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/Interactive-Drum-Kit" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Interactive Drum Kit</div>
+          <p class="portfolio-desc">Web-based music application with interactive drum sounds.</p>
+        </div>
+      </div>
+
+      <!-- Project: TinDog -->
+      <div class="portfolio-card fade-in fade-in-delay-2">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-tindog.png" alt="TinDog">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/TinDog" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">TinDog</div>
+          <p class="portfolio-desc">Fully responsive landing page with modern Bootstrap-style layout.</p>
+        </div>
+      </div>
+
+      <!-- Project: Dice Game -->
+      <div class="portfolio-card fade-in">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-dice-game.png" alt="Dice Game">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/Dice-game" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Dice Game</div>
+          <p class="portfolio-desc">JavaScript DOM manipulation game with interactive dice rolling mechanics.</p>
+        </div>
+      </div>
+
+      <!-- Project: Node Notes System -->
+      <div class="portfolio-card fade-in fade-in-delay-1">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-node-api-system.png" alt="Node Notes System">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/nodejs-complete-blog-api" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Node Notes System</div>
+          <p class="portfolio-desc">Full-stack blog API built with Node.js and complete REST endpoints.</p>
+        </div>
+      </div>
+
+      <!-- Project: Keeper -->
+      <div class="portfolio-card fade-in fade-in-delay-2">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-keeper-app.png" alt="Keeper">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/react-keeper-notes" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Keeper</div>
+          <p class="portfolio-desc">React-powered notes application inspired by Google Keep.</p>
+        </div>
+      </div>
+
+      <!-- Project: To-Do List -->
+      <div class="portfolio-card fade-in">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-todo-list.png" alt="To-Do List">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/todo-list-app-v2" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">To-Do List</div>
+          <p class="portfolio-desc">Feature-rich task manager with full CRUD operations and persistence.</p>
+        </div>
+      </div>
+
+      <!-- Project: Book Tracker -->
+      <div class="portfolio-card fade-in fade-in-delay-1">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-capstone-book-tracker.png" alt="Book Tracker">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/BookTracker" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Book Tracker</div>
+          <p class="portfolio-desc">Personal reading journal to track books and reading progress.</p>
+        </div>
+      </div>
+
+      <!-- Project: Travel Tracker -->
+      <div class="portfolio-card fade-in fade-in-delay-2">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-travel-tracker.png" alt="Travel Tracker">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/TravelTracker" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Travel Tracker</div>
+          <p class="portfolio-desc">Interactive travel map with PostgreSQL backend for visited destinations.</p>
+        </div>
+      </div>
+
+      <!-- Project: Flag Quiz -->
+      <div class="portfolio-card fade-in">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-flag-quiz.png" alt="Flag Quiz">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/FlagQuiz" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Flag Quiz</div>
+          <p class="portfolio-desc">Node.js flag emoji quiz game with score tracking and country database.</p>
+        </div>
+      </div>
+
+      <!-- Project: World Capital Quiz -->
+      <div class="portfolio-card fade-in fade-in-delay-1">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-world-capital-quiz.png" alt="World Capital Quiz">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/WorldCapitalQuiz" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">World Capital Quiz</div>
+          <p class="portfolio-desc">Node.js geography game testing knowledge of world capitals.</p>
+        </div>
+      </div>
+
+      <!-- Project: Login Web Sessions -->
+      <div class="portfolio-card fade-in fade-in-delay-2">
+        <div class="portfolio-img-wrap">
+          <img src="images/portfolio/project-login-web-sessions.png" alt="Login Web Sessions">
+          <div class="portfolio-overlay">
+            <a href="https://github.com/khaledAlzeer/LoginWebSessions" target="_blank" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px;">View on GitHub</a>
+          </div>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-name">Login Web Sessions</div>
+          <p class="portfolio-desc">Secure authentication system using bcrypt hashing and session management.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:48px;" class="fade-in">
+      <button class="btn btn-outline" onclick="portfolioAlert()">View All Projects</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     BLOG SECTION
+=========================== -->
+<section id="blog">
+  <div class="section-glow"></div>
+  <div class="container">
+    <div class="section-tag fade-in">Insights &amp; Articles</div>
+    <h2 class="section-title fade-in">Latest from <em>Our Blog</em></h2>
+    <p class="section-subtitle fade-in">Thoughts, insights, and expertise from the SHK Devs team.</p>
+
+    <!-- 6 blog cards with Read More toggle -->
+    <div class="blog-grid">
+
+      <!-- Blog 1: Khaled — AI -->
+      <div class="blog-card fade-in">
+        <div class="blog-header">
+          <div class="blog-meta">
+            <span class="blog-category">AI</span>
+            <span class="blog-date">March 2023</span>
+          </div>
+          <h3 class="blog-title">Accuracy vs F1 Score in Machine Learning</h3>
+          <div class="blog-author">
+            <img src="images/Khaled.jpg" alt="Khaled" style="width:22px;height:22px;border-radius:50%;object-fit:cover;margin-right:6px;">
+            Khaled Alzeer
+          </div>
+        </div>
+        <div class="blog-body">
+          <p class="blog-preview">Accuracy measures overall correctness but can be misleading with imbalanced datasets.</p>
+          <div class="blog-full" id="blog-full-1">F1 Score balances precision and recall, making it a more reliable metric when dealing with imbalanced data. Understanding when to use each metric is crucial for building effective machine learning models.</div>
+          <button class="blog-read-more" onclick="toggleBlog(1, this)">Read more <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+      <!-- Blog 2: Khaled — Backend -->
+      <div class="blog-card fade-in fade-in-delay-1">
+        <div class="blog-header">
+          <div class="blog-meta">
+            <span class="blog-category">Backend</span>
+            <span class="blog-date">October 2023</span>
+          </div>
+          <h3 class="blog-title">Building Scalable Backend Systems</h3>
+          <div class="blog-author">
+            <img src="images/Khaled.jpg" alt="Khaled" style="width:22px;height:22px;border-radius:50%;object-fit:cover;margin-right:6px;">
+            Khaled Alzeer
+          </div>
+        </div>
+        <div class="blog-body">
+          <p class="blog-preview">Scalable systems handle increased users and data efficiently, improving reliability.</p>
+          <div class="blog-full" id="blog-full-2">Scalable systems improve reliability and flexibility, enabling businesses to grow without performance degradation. Key principles include horizontal scaling, efficient database design, and proper caching strategies.</div>
+          <button class="blog-read-more" onclick="toggleBlog(2, this)">Read more <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+      <!-- Blog 3: Khaled — Data -->
+      <div class="blog-card fade-in fade-in-delay-2">
+        <div class="blog-header">
+          <div class="blog-meta">
+            <span class="blog-category">Data &amp; AI</span>
+            <span class="blog-date">February 2023</span>
+          </div>
+          <h3 class="blog-title">Data Analysis for Modern Businesses</h3>
+          <div class="blog-author">
+            <img src="images/Khaled.jpg" alt="Khaled" style="width:22px;height:22px;border-radius:50%;object-fit:cover;margin-right:6px;">
+            Khaled Alzeer
+          </div>
+        </div>
+        <div class="blog-body">
+          <p class="blog-preview">Data analysis helps understand patterns, supports informed decisions.</p>
+          <div class="blog-full" id="blog-full-3">Data analysis helps businesses understand patterns, supports informed decisions, and provides a competitive advantage. By leveraging data effectively, companies can optimize operations and identify new opportunities for growth.</div>
+          <button class="blog-read-more" onclick="toggleBlog(3, this)">Read more <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+      <!-- Blog 4: Heba — Data Visualization -->
+      <div class="blog-card fade-in">
+        <div class="blog-header">
+          <div class="blog-meta">
+            <span class="blog-category">Data</span>
+            <span class="blog-date">July 2023</span>
+          </div>
+          <h3 class="blog-title">Data Visualization Techniques</h3>
+          <div class="blog-author">
+            <img src="images/Heba.jpeg" alt="Heba" style="width:22px;height:22px;border-radius:50%;object-fit:cover;margin-right:6px;">
+            Heba Alshawish
+          </div>
+        </div>
+        <div class="blog-body">
+          <p class="blog-preview">Transforms complex data into clear visual formats for better decision-making.</p>
+          <div class="blog-full" id="blog-full-4">Charts and dashboards support better decisions by making complex data accessible and understandable. Effective visualization techniques include choosing the right chart type, using color purposefully, and designing for clarity.</div>
+          <button class="blog-read-more" onclick="toggleBlog(4, this)">Read more <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+      <!-- Blog 5: Heba — Security -->
+      <div class="blog-card fade-in fade-in-delay-1">
+        <div class="blog-header">
+          <div class="blog-meta">
+            <span class="blog-category">Security</span>
+            <span class="blog-date">December 2023</span>
+          </div>
+          <h3 class="blog-title">Introduction to Secure Coding Practices</h3>
+          <div class="blog-author">
+            <img src="images/Heba.jpeg" alt="Heba" style="width:22px;height:22px;border-radius:50%;object-fit:cover;margin-right:6px;">
+            Heba Alshawish
+          </div>
+        </div>
+        <div class="blog-body">
+          <p class="blog-preview">Protects against SQL injection and XSS, improves data protection and reliability.</p>
+          <div class="blog-full" id="blog-full-5">Secure coding practices protect against common vulnerabilities like SQL injection and XSS, improving data protection and system reliability. Implementing input validation, output encoding, and proper authentication is essential for every application.</div>
+          <button class="blog-read-more" onclick="toggleBlog(5, this)">Read more <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+      <!-- Blog 6: Heba — Software Testing -->
+      <div class="blog-card fade-in fade-in-delay-2">
+        <div class="blog-header">
+          <div class="blog-meta">
+            <span class="blog-category">Software Engineering</span>
+            <span class="blog-date">June 2023</span>
+          </div>
+          <h3 class="blog-title">Effective Software Testing</h3>
+          <div class="blog-author">
+            <img src="images/Heba.jpeg" alt="Heba" style="width:22px;height:22px;border-radius:50%;object-fit:cover;margin-right:6px;">
+            Heba Alshawish
+          </div>
+        </div>
+        <div class="blog-body">
+          <p class="blog-preview">Ensures correct function before deployment, detects errors early.</p>
+          <div class="blog-full" id="blog-full-6">Effective software testing ensures correct functionality before deployment, detects errors early, and increases system reliability. A comprehensive testing strategy includes unit tests, integration tests, and end-to-end testing for full coverage.</div>
+          <button class="blog-read-more" onclick="toggleBlog(6, this)">Read more <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     TESTIMONIALS SECTION
+=========================== -->
+<section id="testimonials">
+  <div class="section-glow"></div>
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-tag fade-in">Social Proof</div>
+      <h2 class="section-title fade-in">What Our <em>Clients Say</em></h2>
+      <p class="fade-in" style="color:var(--text2);max-width:640px;margin:0 auto;font-size:1rem;line-height:1.75;font-weight:300;">
+        At SHK Devs, we value long-term partnerships and client satisfaction above everything else.
+        The feedback below reflects real experiences from clients who trusted our team to deliver
+        high-quality, scalable, and secure digital solutions.
+      </p>
+    </div>
+
+    <!-- 9 testimonial cards -->
+    <div class="testimonials-grid">
+
+      <!-- Testimonial: Emma (4★) -->
+      <div class="testi-card fade-in">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The project was delivered on time with excellent quality. I highly recommend SHK Devs for any software development needs.</p>
+        <div class="testi-bottom">
+          <div class="testi-avatar"><img src="https://i.pinimg.com/736x/ec/43/2c/ec432cebaa9c0fbc10e99d8bd2c11e46.jpg" alt="Emma"></div>
+          <div><div class="testi-name">Emma</div><div class="testi-label">Business Owner</div></div>
+          <div class="testi-stars">★★★★<span style="color:var(--surface2);">★</span></div>
+        </div>
+      </div>
+
+      <!-- Testimonial: Ethan (5★) -->
+      <div class="testi-card fade-in fade-in-delay-1">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">SHK Devs delivered a high-quality system with excellent performance. The team was professional and very supportive throughout the project.</p>
+        <div class="testi-bottom">
+          <div class="testi-avatar"><img src="https://i.pinimg.com/736x/1a/8d/f5/1a8df53ecbf517fb629fd94b447462a8.jpg" alt="Ethan"></div>
+          <div><div class="testi-name">Ethan</div><div class="testi-label">Business Owner</div></div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <!-- Testimonial: Sofia (5★) -->
+      <div class="testi-card fade-in fade-in-delay-2">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Working with SHK Devs was a smooth and professional experience. They delivered a high-quality system that added real value to our business.</p>
+        <div class="testi-bottom">
+          <div class="testi-avatar"><img src="https://i.pinimg.com/736x/6d/eb/86/6deb86e669d45537bb84933d55488b22.jpg" alt="Sofia"></div>
+          <div><div class="testi-name">Sofia</div><div class="testi-label">Business Owner</div></div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <!-- Testimonial: Amina (3★) -->
+      <div class="testi-card fade-in">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">SHK Devs provided a solid solution for our business. The experience was good overall and met our expectations.</p>
+        <div class="testi-bottom">
+          <div class="testi-avatar"><img src="https://i.pinimg.com/736x/a7/a1/a0/a7a1a080112241bae122544c0a13749b.jpg" alt="Amina"></div>
+          <div><div class="testi-name">Amina</div><div class="testi-label">Business Owner</div></div>
+          <div class="testi-stars">★★★<span style="color:var(--surface2);">★★</span></div>
+        </div>
+      </div>
+
+      <!-- Testimonial: Jason (4★) -->
+      <div class="testi-card fade-in fade-in-delay-1">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">SHK Devs delivered a well-structured solution for our business. The team was professional and easy to work with.</p>
+        <div class="testi-bottom">
+          <div class="testi-avatar"><img src="https://i.pinimg.com/736x/f8/59/db/f859dbe63ef023c378f6654d65b9243a.jpg" alt="Jason"></div>
+          <div><div class="testi-name">Jason</div><div class="testi-label">Business Owner</div></div>
+          <div class="testi-stars">★★★★<span style="color:var(--surface2);">★</span></div>
+        </div>
+      </div>
+
+      <!-- Testimonial: Henry (5★) -->
+      <div class="testi-card fade-in fade-in-delay-2">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The project was handled efficiently and met our expectations. SHK Devs made the collaboration simple and clear.</p>
+        <div class="testi-bottom">
+          <div class="testi-avatar"><img src="https://i.pinimg.com/736x/ee/bb/29/eebb2936be4e3a9e6ad15081c73ae3e4.jpg" alt="Henry"></div>
+          <div><div class="testi-name">Henry</div><div class="testi-label">Business Owner</div></div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <!-- Testimonial: Tony (4★) -->
+      <div class="testi-card fade-in">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The system delivered was clear, functional, and useful for our daily work. SHK Devs showed professionalism throughout the project.</p>
+        <div class="testi-bottom">
+          <div class="testi-avatar"><img src="https://i.pinimg.com/736x/fa/26/04/fa2604d5a479475fe94e1ab12824375f.jpg" alt="Tony"></div>
+          <div><div class="testi-name">Tony</div><div class="testi-label">Business Owner</div></div>
+          <div class="testi-stars">★★★★<span style="color:var(--surface2);">★</span></div>
+        </div>
+      </div>
+
+      <!-- Testimonial: Brian (5★) -->
+      <div class="testi-card fade-in fade-in-delay-1">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The solution met our expectations and helped improve our workflow. SHK Devs handled the project in an organized and professional way.</p>
+        <div class="testi-bottom">
+          <div class="testi-avatar"><img src="https://i.pinimg.com/736x/37/cb/44/37cb44725381b3417d4fbd855028f0d3.jpg" alt="Brian"></div>
+          <div><div class="testi-name">Brian</div><div class="testi-label">Business Owner</div></div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <!-- Testimonial: Alice (4★) -->
+      <div class="testi-card fade-in fade-in-delay-2">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The project was handled efficiently with clear communication. We were satisfied with the overall results and delivery.</p>
+        <div class="testi-bottom">
+          <div class="testi-avatar"><img src="https://i.pinimg.com/736x/bd/32/97/bd32972020d5e78a7432a6eaabbab341.jpg" alt="Alice"></div>
+          <div><div class="testi-name">Alice</div><div class="testi-label">Business Owner</div></div>
+          <div class="testi-stars">★★★★<span style="color:var(--surface2);">★</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:56px;" class="fade-in">
+      <button class="btn btn-primary btn-arrow" onclick="ctaContactAlert()">Ready to Join Our Happy Clients?</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     FAQ SECTION
+=========================== -->
+<section id="faq">
+  <div class="section-glow"></div>
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-tag fade-in">FAQ</div>
+      <h2 class="section-title fade-in">Frequently Asked <em>Questions</em></h2>
+    </div>
+
+    <!-- FAQ accordion grid — 2 columns, last item spans full width -->
+    <div class="faq-grid">
+      <div class="faq-item fade-in">
+        <button class="faq-q" onclick="toggleFaq(this)">What services does SHK Devs provide? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Web development, backend systems, UI/UX design, and custom software solutions. We also offer mobile apps, AI solutions, data analysis, cloud solutions, and cybersecurity services.</div></div>
+      </div>
+      <div class="faq-item fade-in fade-in-delay-1">
+        <button class="faq-q" onclick="toggleFaq(this)">How long does a project usually take? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Between 2 to 8 weeks depending on the scope and complexity of the project. We provide a detailed timeline during the planning phase.</div></div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q" onclick="toggleFaq(this)">Do you provide ongoing support? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes, we offer maintenance and support after delivery to ensure your solution continues to perform optimally.</div></div>
+      </div>
+      <div class="faq-item fade-in fade-in-delay-1">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I request custom features? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely, we tailor every solution to meet the specific needs and goals of each client.</div></div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q" onclick="toggleFaq(this)">Do you work with startups? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes, we love helping startups build their digital presence from the ground up with scalable, cost-effective solutions.</div></div>
+      </div>
+      <div class="faq-item fade-in fade-in-delay-1">
+        <button class="faq-q" onclick="toggleFaq(this)">How can I get a quote? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Contact us through the Contact section on this page and we'll get back to you with a detailed quote.</div></div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-q" onclick="toggleFaq(this)">Why should I choose SHK Devs? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Quality, clear communication, and results that help businesses grow. We are passionate about delivering solutions that make a real difference.</div></div>
+      </div>
+      <div class="faq-item fade-in fade-in-delay-1">
+        <button class="faq-q" onclick="toggleFaq(this)">Do you provide documentation and training? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes, we provide clear documentation and basic training if needed to ensure you can manage your solution independently.</div></div>
+      </div>
+      <!-- Last item spans full 2 columns -->
+      <div class="faq-item fade-in" style="grid-column: 1 / -1;">
+        <button class="faq-q" onclick="toggleFaq(this)">How do you communicate during the project? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">We communicate via email, scheduled meetings, and regular progress updates to keep you informed at every stage.</div></div>
+      </div>
+    </div>
+
+    <!-- CTA panel below FAQ -->
+    <div class="faq-cta fade-in">
+      <p>Still have questions? We're happy to help.</p>
+      <button class="btn btn-primary" onclick="faqContactAlert()">Get in Touch</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     CONTACT SECTION
+=========================== -->
+<section id="contact">
+  <div class="section-glow"></div>
+  <div class="container">
+    <div class="section-tag fade-in">Get in Touch</div>
+    <h2 class="section-title fade-in">Let's Work <em>Together</em></h2>
+
+    <div class="contact-grid" style="margin-top:48px;">
+
+      <!-- Left: contact info + action buttons -->
+      <div class="contact-info fade-in">
+        <h3>Ready to Start Your Project?</h3>
+        <p>We'd love to hear about your project. Send us a message and we'll get back to you as soon as possible.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-val"><a href="tel:+962791139710">+962 79 113 9710</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-val">Amman, Jordan</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">Working Hours</div>
+              <div class="contact-item-val">Sun – Thu | 9:00 AM – 6:00 PM</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-val"><a href="mailto:contact@shkdevs.com">contact@shkdevs.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">💬</div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">WhatsApp</div>
+              <div class="contact-item-val"><a href="https://wa.me/962791139710" target="_blank">Chat on WhatsApp</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🔗</div>
+            <div class="contact-item-body">
+              <div class="contact-item-label">LinkedIn</div>
+              <div class="contact-item-val"><a href="https://www.linkedin.com/in/your-linkedin" target="_blank">Connect on LinkedIn</a></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="btn btn-secondary" onclick="contactTeamAlert()">Contact Team</button>
+          <button class="btn btn-outline"   onclick="quoteAlert()">Get a Quote</button>
+          <button class="btn btn-ghost"     onclick="startProjectAlert()">Start a Project</button>
+        </div>
+      </div>
+
+      <!-- Right: contact form -->
+      <div class="contact-form fade-in fade-in-delay-1">
+        <form id="contact-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="form-name">Name *</label>
+              <input type="text" id="form-name" class="form-input" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="form-email">Email *</label>
+              <input type="email" id="form-email" class="form-input" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form-subject">Subject</label>
+            <input type="text" id="form-subject" class="form-input" placeholder="Project inquiry">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form-message">Message *</label>
+            <textarea id="form-message" class="form-textarea" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message →</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     FOOTER
+=========================== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <!-- Brand blurb -->
+      <div class="footer-brand">
+        <a href="#home" class="nav-logo">
+          <img src="images/SHK-Logo.jpg" alt="SHK Devs">
+          SHK<span>Devs</span>
+        </a>
+        <p>A creative development team building smart digital solutions — from web to AI, we've got you covered.</p>
+      </div>
+
+      <!-- Navigation + services link columns -->
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <ul>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Web Development</a></li>
+            <li><a href="#services">AI Solutions</a></li>
+            <li><a href="#services">Data Analysis</a></li>
+            <li><a href="#services">Cybersecurity</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <!-- Bottom: copyright + social icon buttons -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">© <span id="copyright-year"></span> <span>SHK Devs</span>. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="https://github.com/khaledAlzeer"                       target="_blank" class="footer-social-btn" title="GitHub">GH</a>
+        <a href="https://www.linkedin.com/in/khaled-alzeer-60787b322"   target="_blank" class="footer-social-btn" title="LinkedIn">LI</a>
+        <a href="https://wa.me/962791139710"                             target="_blank" class="footer-social-btn" title="WhatsApp">WA</a>
+        <a href="mailto:contact@shkdevs.com"                                             class="footer-social-btn" title="Email">EM</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Main JavaScript file -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
