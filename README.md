@@ -81,5 +81,3 @@ SHK-Devs-v1/
 [GitHub @khaledAlzeer](https://github.com/khaledAlzeer) · [LinkedIn](https://www.linkedin.com/in/khaled-alzeer-60787b322) · [Email](mailto:kalzyr61@email.com)
 
 ---
-
-<p align="center">Made with ❤️ as an HTML course project</p>
